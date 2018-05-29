@@ -15,15 +15,14 @@
 
     Both strings' lengths will not exceed 100.
     Only letters from a ~ z will appear in input strings.
-
  */
 public class LongestUncommonSubsequence {
     public int findLUSlength(String a, String b) {
-        return a.equalsIgnoreCase(b) ? -1 : Math.max(a.length(), b.length());
+        return a.equals(b) ? -1:Math.max(a.length(), b.length());
     }
 
     public static void main(String[] args) {
-        LongestUncommonSubsequence LUS = new LongestUncommonSubsequence();
-        System.out.println(LUS.findLUSlength("aba", "abacc"));
+        LongestUncommonSubsequence lus = new LongestUncommonSubsequence();
+        System.out.println(lus.findLUSlength("aaa", "aaa"));
     }
 }
