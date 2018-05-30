@@ -1,17 +1,19 @@
 /**
- * Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.
-    Example 1:
-    Input:
+ * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+    For example:
+    Given binary tree [3,9,20,null,null,15,7],
         3
-        / \
-        9  20
+    / \
+    9  20
         /  \
-        15   7
-    Output: [3, 14.5, 11]
-    Explanation:
-    The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
-    Note:
-    The range of node's value is in the range of 32-bit signed integer.
+    15   7
+    return its level order traversal as:
+    [
+    [3],
+    [9,20],
+    [15,7]
+    ]
  */
 
 import java.util.List;
@@ -19,7 +21,8 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class AverageOfLevelsInBinaryTree {
+class BinaryTreeLevelOrderTraversal {
+
     private class TreeNode {
         int val;
         TreeNode left;
@@ -27,16 +30,19 @@ class AverageOfLevelsInBinaryTree {
         TreeNode(int x) { val = x; }
     }
 
-    public List<Double> averageOfLevels(TreeNode root) {
-        List<Double> result = new ArrayList<Double>();
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (root == null) {
+            return result;
+        }
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
-        while (!queue.isEmpty()) {
-            double sum = 0.0;
+        while(!queue.isEmpty()) {
             int size = queue.size();
+            List<Integer> layer = new ArrayList<Integer>();
             for (int i = 0; i < size; i++) {
                 TreeNode temp = queue.poll();
-                sum += temp.val;
+                layer.add(temp.val);
                 if (temp.left != null) {
                     queue.offer(temp.left);
                 }
@@ -44,7 +50,7 @@ class AverageOfLevelsInBinaryTree {
                     queue.offer(temp.right);
                 }
             }
-            result.add(sum/size);
+            result.add(layer);
         }
         return result;
     }
