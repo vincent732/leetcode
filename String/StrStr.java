@@ -30,30 +30,23 @@ class StrStr {
         if (needle.length() > haystack.length()) {
             return -1;
         }
-        int start_index = -1;
-        int next_index = -1;
-        for (int i = 0; i < needle.length(); i++) {
-            char c = needle.charAt(i);
-            if (haystack.indexOf(c) < 0) {
-                continue;
+        int currentIndex = -1;
+        int targetLength = needle.length();
+        for (int i = 0 ; i < haystack.length();i++) {
+            if (i + targetLength > haystack.length()) {
+                break;
             }
-            if (next_index == -1) {
-                next_index = haystack.indexOf(c) + 1;
-                start_index = haystack.indexOf(c);
-                continue;
-            }
-            if (next_index == haystack.indexOf(c)) {
-                next_index = haystack.indexOf(c) + 1;
-            } else {
-                start_index = -1;
-                next_index = -1;
+            String subStr = haystack.substring(i, i+targetLength);
+            if (subStr.equals(needle)) {
+                currentIndex = i;
+                break;
             }
         }
-        return start_index;
+        return currentIndex;
     }
 
     public static void main(String[] args) {
         StrStr ss = new StrStr();
-        System.out.println(ss.strStr("hello", "ll"));
+        System.out.println(ss.strStr("mississippi", "sippi"));
     }
 }
