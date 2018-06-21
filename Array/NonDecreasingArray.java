@@ -16,4 +16,9 @@ class NonDecreasingArray {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        NonDecreasingArray n = new NonDecreasingArray();
+        System.out.println(n.checkPossibility(new int[]{1, 5, 3, 3, 7}));
+    }
 }
