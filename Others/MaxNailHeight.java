@@ -23,6 +23,10 @@ which may produce incorrect results for other inputs.
 Find the bug(s) and correct them. 
 You should modify at most four lines of code.
  */
+
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Enumeration;
 class MaxNailHeight {
     public int solution(int[] A, int K) {
         int n = A.length;
@@ -44,12 +48,31 @@ class MaxNailHeight {
     }
 
     public static void main(String[] args) {
-        MaxNailHeight m = new MaxNailHeight();
-        System.out.println(m.solution(new int[]{1,1,3,3,3,4,5,5,5,5}, 2));
-        System.out.println(m.solution(new int[]{1,1,3,4}, 2));
-        System.out.println(m.solution(new int[]{1,1,1,1}, 2));
-        System.out.println(m.solution(new int[]{1,1}, 2));
-        System.out.println(m.solution(new int[]{1, 2, 2, 2, 2}, 5));
-        System.out.println(m.solution(new int[]{1, 2, 2, 2, 2}, 6));
+        // MaxNailHeight m = new MaxNailHeight();
+        // System.out.println(m.solution(new int[]{1,1,3,3,3,4,5,5,5,5}, 2));
+        // System.out.println(m.solution(new int[]{1,1,3,4}, 2));
+        // System.out.println(m.solution(new int[]{1,1,1,1}, 2));
+        // System.out.println(m.solution(new int[]{1,1}, 2));
+        // System.out.println(m.solution(new int[]{1, 2, 2, 2, 2}, 5));
+        // System.out.println(m.solution(new int[]{1, 2, 2, 2, 2}, 6));
+        String a = "abc";
+        String b = "abc";
+        String c = "a"+"b"+"c";
+        System.out.println(a==b);
+        System.out.println(c==b);
+
+        a = new String("abc");
+        b = new String("abc");
+        System.out.println(a==b);
+
+        Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
+
+        hashtable.put("test", 1);
+        hashtable.put("test2", 2);
+        Enumeration<String> keys = hashtable.keys();
+        Iterator<String> key = hashtable.keys().asIterator();
+        while (key.hasNext()) {
+            System.out.println(key.next());
+        }
     }
 }

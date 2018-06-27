@@ -16,7 +16,6 @@ public class StackCalculator {
                     if (output < 0) {
                         return -1;
                     }
-                    System.out.println("encounter + : push " + output + " to stack");
                     stack.push(output);
                     continue;
                 }
@@ -26,7 +25,6 @@ public class StackCalculator {
                     if (output < 0) {
                         return -1;
                     }
-                    System.out.println("encounter * : push " + output + " to stack");
                     stack.push(output);
                     continue;
                 }
