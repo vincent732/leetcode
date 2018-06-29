@@ -31,7 +31,7 @@ class FindUnsortedSubarray {
                 end = Math.max(i, end);
             }
         }
-        return (end - start >=0)? end-start+1:0;
+        return (end - start >= 0) ? end-start + 1 : 0;
     }
 
     public static void main(String[] args) {
